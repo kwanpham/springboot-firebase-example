@@ -11,6 +11,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Step 1 - Echo out a GitHub Actions Secret to the logs
+          run: |
+            echo "The GitHub Action Secret will be masked:  "
+            echo ${{ secrets.SECRET_TOKEN }}
+
       - uses: actions/checkout@v2
       - name: Set up JDK 8
         uses: actions/setup-java@v1
@@ -34,6 +39,8 @@ jobs:
           source: "target/springboot-firebase-example-0.0.1-SNAPSHOT.jar"
           target: "target/liftu.jar"
 
+      - name: echo secrets
+        -
       - name: Deploy production
         if: github.ref == 'refs/heads/master'
         uses: garygrossgarten/github-action-scp@release
