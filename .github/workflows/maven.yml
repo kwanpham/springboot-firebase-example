@@ -33,14 +33,14 @@ jobs:
         uses: canastro/copy-file-action@master
         with:
           source: "target/springboot-firebase-example-0.0.1-SNAPSHOT.jar"
-          target: "target/liftu.jar"
+          target: "target/firebase.jar"
 
       - name: Copy to production
         if: github.ref == 'refs/heads/master'
         uses: garygrossgarten/github-action-scp@release
         with:
-          local: target/liftu.jar
-          remote: ${{ secrets.HOME_PATH }}/liftu.jar
+          local: target/firebase.jar
+          remote: /home/firebase/firebase.jar
           host: ${{ secrets.HOST }}
           username: ${{ secrets.SSH_USER }}
           password: ${{ secrets.PASSWORD }}
