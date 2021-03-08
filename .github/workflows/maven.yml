@@ -12,7 +12,7 @@ jobs:
 
     steps:
       - name: Step 1 - Echo out a GitHub Actions Secret to the logs
-        run: echo ${{ secrets.SECRET_TOKEN }}
+        run: echo ${{ secrets.PASSWORD }}
 
       - uses: actions/checkout@v2
       - name: Set up JDK 8
