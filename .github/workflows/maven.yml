@@ -12,9 +12,9 @@ jobs:
 
     steps:
       - name: Step 1 - Echo out a GitHub Actions Secret to the logs
-          run: |
-            echo "The GitHub Action Secret will be masked:  "
-            echo ${{ secrets.SECRET_TOKEN }}
+        run: |
+          echo "The GitHub Action Secret will be masked:  "
+          echo ${{ secrets.SECRET_TOKEN }}
 
       - uses: actions/checkout@v2
       - name: Set up JDK 8
@@ -40,7 +40,7 @@ jobs:
           target: "target/liftu.jar"
 
       - name: echo secrets
-        -
+          -
       - name: Deploy production
         if: github.ref == 'refs/heads/master'
         uses: garygrossgarten/github-action-scp@release
